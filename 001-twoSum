@@ -1,0 +1,18 @@
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number[]}
+ */
+var twoSum = function(nums, target) {
+    let length = nums.length
+    let mp = new Map()
+    nums.forEach((d,i)=>{
+        mp.set(d,i)
+    })
+    for(let i=0;i!=length;i++)
+    {
+        let j = mp.get(target-nums[i])
+        if(j!=undefined && i!=j)
+            return [i,j]
+    }
+};
