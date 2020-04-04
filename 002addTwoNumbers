@@ -1,0 +1,29 @@
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val) {
+ *     this.val = val;
+ *     this.next = null;
+ * }
+ */
+/**
+ * @param {ListNode} l1
+ * @param {ListNode} l2
+ * @return {ListNode}
+ */
+var addTwoNumbers = function(l1, l2) {
+    let result = new ListNode(null)
+    let re = result,carray = 0,s 
+    while(l1||l2||carray)
+    {
+        const x = l1?l1.val:0
+        const y = l2?l2.val:0
+        s= x+y+carray
+        re.next = new ListNode(s%10)
+        carray = ~~(s/10)
+        re = re.next
+        l1&&(l1 = l1.next)
+        l2&&(l2 = l2.next)
+    }
+    return result.next
+
+};
